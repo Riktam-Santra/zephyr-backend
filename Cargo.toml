@@ -1,0 +1,36 @@
+[package]
+name = "zephyr-backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4.2.1"
+actix-extensible-rate-limit = "0.2.1"
+serde = {version = "1.0.147", features = ["derive"]}
+serde_json = "1.0.88"
+hmac = "0.12.1"
+env_logger = "0.10.0"
+log = "0.4.17"
+argon2 = "0.4"
+rand_core = { version = "0.6", features = ["std"] }
+r2d2 = "0.8.10"
+r2d2_postgres = "0.18.1"
+jwt-simple = "0.11.2"
+sha2 = "0.10.6"
+futures-util = "0.3.25"
+actix-web-httpauth = "0.8.0"
+console-subscriber = "0.1.8"
+actix-cors = "0.6.4"
+
+[dependencies.uuid]
+version = "1.2.2"
+features = [
+    "v4",                # Lets you generate random UUIDs
+    "fast-rng",          # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+]
+
+[build]
+rustflags = ["--cfg", "tokio_unstable"]
